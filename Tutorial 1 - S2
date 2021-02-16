@@ -1,0 +1,62 @@
+How to make a player move and double jump 
+
+First, make a mew project. Add a plane and a cube. 
+Add a Rigidbody to the cube (Player) 
+Add a character controller on the cube
+Now add a new script to it and call it "DoubleJump"
+Once you have opened the script write- 
+[SerializeField]
+ private float _moveSpeed = 5f;
+    [SerializeField]
+    private float _gravity = 9.81f;
+    [SerializeField]
+    private float _jumpSpeed = 3.5f;
+    [SerializeField]
+    private float _doubleJumpMultiplier = 0.5f;
+    private CharacterController _controller;
+    private float _directionY;
+    private bool _canDoubleJump = false;
+    This section of code tells unity the amount of movement speed, gravity, jump speed and double jump we want. You can change it to what you want, its personal preference. Tells unity to recongnise the character controller as well
+    
+    Next part of code under void start is: 
+    _controller = GetComponent<CharacterController>();
+    This notices the character controller 
+    
+    next part under void update write: 
+      float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput); 
+        This is the horizontal and vertical imput for the player. 
+        
+        next write: 
+        
+        if (_controller.isGrounded)                   This part calculates that if we press spacebar "jump" it will jump and double jump when supposed to.  
+        {
+            _canDoubleJump = true;
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                _directionY = _jumpSpeed;
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown("Jump") && _canDoubleJump)
+            {
+                _directionY = _jumpSpeed * _doubleJumpMultiplier;
+                _canDoubleJump = false;
+            }
+        }
+
+        _directionY -= _gravity * Time.deltaTime;
+
+        direction.y = _directionY;                                            This part recongnises the gravity and move speed
+
+        _controller.Move(direction * _moveSpeed * Time.deltaTime);
+        
+        
+   
+    
+    
+    
+    
