@@ -1,0 +1,43 @@
+Coding camera follow and player movement
+
+First make a plane and get a cube and call it player. 
+Add a Rigidbody to the cube "Player"
+
+We will start by writing the camera follow code to the player. 
+ public GameObject face;  - This lets us drag the gameobject the camera will be following into the available box we will have when we are done.   
+ private Vector3 offset;  
+ 
+ Next under void start write 
+ offset = transform.position - face.transform.position; - This recongnises the start position of the player
+ 
+ under void update write 
+ transform.position = face.transform.position + offset;   - This recongises when the player moves, the camera will follow it. 
+ 
+ Now we can write the player movement code
+ first thing to write is public float movementSpeed;  - This just enables us to change the movement speed on the tab
+ 
+ next write 
+  if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w"))
+        {
+            transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed * 2.5f;
+        }
+        else if (Input.GetKey("w") && !Input.GetKey(KeyCode.LeftShift))
+     - This tells unity that if I press the W key on the keyboard it will move forward at a set speed
+     
+     now we have to do this for the ASD keys
+      else if (Input.GetKey("s"))
+        {
+            transform.position -= transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
+        }
+
+        if (Input.GetKey("a") && !Input.GetKey("d"))
+        {
+            transform.position += transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
+        }
+        else if (Input.GetKey("d") && !Input.GetKey("a"))
+        {
+            transform.position -= transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
+            
+            This also tells unity that when you press A it will move left, when you press D it will move right and when you press S it will move backwards 
+            
+            
