@@ -2,4 +2,4 @@ Jack Hopwood Journal
 
 16/02/21 - This week i have learnt how to make a player double jump when pressing the spacebar twice. I came across a couple problems. The First one is I was getting compile errors but I managed to figure out what was missing. 
 
-23/2/21 - 
+23/2/21 - I have learnt how to code camera follow and player movement. I tried making the movement playable by the arrow keys but it wouldn't work, so I done it by the WASD keys. 
