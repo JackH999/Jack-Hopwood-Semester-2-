@@ -1,2 +1,12 @@
 Player pick up object 
 
+First, make the scene by adding a plane for the ground and a cube as the player
+Add a Rigidbody to the cube 
+
+We need to add the player movement sript to the player. See tutorial 2 for instructioms 
+
+Now add a ball as the object that is going to be collected. 
+Add a script to it and call it "pick up"
+First write  void OnTriggerEnter(Collider other) -  on the object you want the player to pick up, make sure you have the "Is Trigger" box ticked. This line of script recongnises that when the player makes contact with the objewcts collider, it triggers an action. In this case we want it to dissapear/pick up. 
+next write   if (other.CompareTag("GameController")) -  this is getting the tag of the player I set in unity in the drop down box at the top. You dont have to call it GameManager, you can call it whatever you want but make sure you name it the same in the line of script as well otherwise it wont work. 
+Destroy(other.gameObject); -  this makes the object we pick up dissapear on screen. 
