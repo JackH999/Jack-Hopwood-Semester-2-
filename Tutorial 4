@@ -1,4 +1,4 @@
-Resapawn on trigger 
+Respawn on trigger 
 
 First start by making the scene. Get a cube for the player, a plane for the ground and another cube as a wall that we will use as the trigger. 
 Add a rigidbody to the player. 
