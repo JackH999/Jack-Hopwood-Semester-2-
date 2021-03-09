@@ -1,0 +1,19 @@
+Resapawn on trigger 
+
+First start by making the scene. Get a cube for the player, a plane for the ground and another cube as a wall that we will use as the trigger. 
+Add a rigidbody to the player. 
+Freeze rotation so the cube/player does not move around on contact with objects. Find this under the constraints on the rigidbody. 
+
+Add Player movement script to the player
+Create a new script and call it TriggerRespawn or Respawn
+At the top of the script write using UnityEngine.SceneManagement; - For this code I am respawning the player by resetting the scene so the scene manager is needed. 
+
+Next write public Scene loadedlevel; - This goes above void start - This recognises the scene that is loaded. 
+
+under void start write loadedlevel = SceneManager.GetActiveScene(); - This also recognises the scene at the start. 
+Write a new void which will be void on trigger -  void OnTriggerEnter(Collider other)  
+Under this void write 
+ if (other.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(loadedlevel.name); - This recongises the trigger and then the game object that will set off that trigger and then it tells it to reload the scene once the player hits the wall. 
+            
