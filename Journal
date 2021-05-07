@@ -1,9 +1,0 @@
-Jack Hopwood Journal
-
-16/02/21 - This week i have learnt how to make a player double jump when pressing the spacebar twice. I came across a couple problems. The First one is I was getting compile errors but I managed to figure out what was missing. 
-
-23/2/21 - I have learnt how to code camera follow and player movement. I tried making the movement playable by the arrow keys but it wouldn't work, so I done it by the WASD keys. 
-
-02/3/21 - This week I have learnt how to code a item pick up. I ran into a few problems such as forgetting to put capitals in places and using ; 
-
-09/03/21 - This week I have learnt how to code a respawn on trigger, This took a while to do as I came across a few problems such as making sure all the right boxes were ticked such as the "is trigger" box. I also forgot to put the code in the right places sometimes but I was able to go back and fix it. 
